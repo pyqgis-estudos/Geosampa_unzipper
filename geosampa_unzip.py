@@ -30,6 +30,8 @@ from .resources import *
 # Import the code for the dialog
 from .geosampa_unzip_dialog import GeosampaUnzipDialog
 import os.path
+import os
+import zipfile
 
 
 class GeosampaUnzip:
@@ -181,6 +183,18 @@ class GeosampaUnzip:
                 action)
             self.iface.removeToolBarIcon(action)
 
+    # This method renames the shape's files
+    def renameFiles(self):
+
+
+    def unzipFile(self):
+
+
+    def createPRJ(self, path, filename):
+        string = 'PROJCS["SIRGAS_2000_UTM_zone_23S",GEOGCS["GCS_SIRGAS 2000",DATUM["D_SIRGAS_2000",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-45],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]'
+        file = open(r'{1}\{2}.prj'.format(path, filename, 'w'))
+        file.write(string)
+        file.close()
 
     def run(self):
         """Run method that performs all the real work"""
@@ -200,3 +214,5 @@ class GeosampaUnzip:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
             pass
+
+
